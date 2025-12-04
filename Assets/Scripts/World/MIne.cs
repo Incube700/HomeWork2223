@@ -1,18 +1,73 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MIne : MonoBehaviour
+public class Mine : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int _damage = 25;
+    [SerializeField] private float _delayBeforeExplosion = 1.5f;
+    [SerializeField] private float _explodeRadius = 2.5f;
+
+    private bool _isTriggered;
+    private float _timer;
+
+    private void Update()
     {
-        
+        if (_isTriggered == false)
+        {
+            return;
+        }
+
+        _timer -= Time.deltaTime;
+
+        if (_timer <= 0f)
+        {
+            Explode();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (_isTriggered == true)
+        {
+            return;
+        }
+
+        IDamageable damageable = other.GetComponent<IDamageable>();
+
+        if (damageable != null && damageable.IsDead == false)
+        {
+            _isTriggered = true;
+            _timer = _delayBeforeExplosion;
+        }
+    }
+
+    private void Explode()
+    {
+        Collider[] hits = Physics.OverlapSphere(transform.position, _explodeRadius);
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            IDamageable damageable = hits[i].GetComponent<IDamageable>();
+
+            if (damageable != null && damageable.IsDead == false)
+            {
+                damageable.TakeDamage(_damage);
+            }
+        }
+
+        Destroy(gameObject);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        SphereCollider sphere = GetComponent<SphereCollider>();
+
+        if (sphere != null)
+        {
+            Gizmos.DrawWireSphere(transform.position, sphere.radius);
+        }
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, _explodeRadius);
     }
 }
