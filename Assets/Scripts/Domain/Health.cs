@@ -3,8 +3,8 @@ using UnityEngine;
 public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _maxHealth = 100;
+	[SerializeField] private int _currentHealth;
     
-    private int _currentHealth;
     private bool _isDead;
     
     public int Maxhealth => _maxHealth;

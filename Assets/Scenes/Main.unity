@@ -4125,6 +4125,12 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &461985935 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8839453588234353029, guid: 5600060e8cca846b785f2d471e9f2968,
+    type: 3}
+  m_PrefabInstance: {fileID: 170456870}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &461985936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4138,8 +4144,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
-  _delayBeforeExplosion: 1.5
-  _explodeRadius: 2.5
+  _delayBeforeExplosion: 3
+  _explodeRadius: 50
+  _animator: {fileID: 461985935}
   _explodeFxPrefab: {fileID: 3814609385356386901, guid: 79e5264e95473442ea1f0dce5101c498,
     type: 3}
 --- !u!4 &474399710 stripped
@@ -6345,6 +6352,12 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &908439131 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8839453588234353029, guid: 5600060e8cca846b785f2d471e9f2968,
+    type: 3}
+  m_PrefabInstance: {fileID: 269449771}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &908439132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6358,8 +6371,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
-  _delayBeforeExplosion: 1.5
-  _explodeRadius: 2.5
+  _delayBeforeExplosion: 3
+  _explodeRadius: 50
+  _animator: {fileID: 908439131}
   _explodeFxPrefab: {fileID: 3814609385356386901, guid: 79e5264e95473442ea1f0dce5101c498,
     type: 3}
 --- !u!1 &921913863
@@ -6980,6 +6994,12 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1081799285 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8839453588234353029, guid: 5600060e8cca846b785f2d471e9f2968,
+    type: 3}
+  m_PrefabInstance: {fileID: 594932408}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1081799286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6993,8 +7013,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
-  _delayBeforeExplosion: 1.5
-  _explodeRadius: 2.5
+  _delayBeforeExplosion: 3
+  _explodeRadius: 50
+  _animator: {fileID: 1081799285}
   _explodeFxPrefab: {fileID: 3814609385356386901, guid: 79e5264e95473442ea1f0dce5101c498,
     type: 3}
 --- !u!4 &1089398244 stripped
@@ -7550,6 +7571,12 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1158215564 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8839453588234353029, guid: 5600060e8cca846b785f2d471e9f2968,
+    type: 3}
+  m_PrefabInstance: {fileID: 1158215560}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1158215565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7563,8 +7590,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
-  _delayBeforeExplosion: 1.5
-  _explodeRadius: 2.5
+  _delayBeforeExplosion: 3
+  _explodeRadius: 50
+  _animator: {fileID: 1158215564}
   _explodeFxPrefab: {fileID: 3814609385356386901, guid: 79e5264e95473442ea1f0dce5101c498,
     type: 3}
 --- !u!4 &1174570796 stripped
@@ -8184,7 +8212,7 @@ Transform:
   m_GameObject: {fileID: 1191137372}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48, y: 0.2, z: 231.6}
+  m_LocalPosition: {x: 49.8, y: 4.7, z: 191.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8201,10 +8229,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.71
-  m_Speed: 15
-  m_Acceleration: 10
+  m_Speed: 44.06
+  m_Acceleration: 20.58
   avoidancePriority: 50
-  m_AngularSpeed: 300
+  m_AngularSpeed: 285.9
   m_StoppingDistance: 0.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -8240,8 +8268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 1191137374}
   _idleTimeBeforePatrol: 3
-  _patrolRadius: 20
-  _minVelocityToMove: 0.1
+  _patrolRadius: 50
+  _minVelocityToMove: 0.2
 --- !u!114 &1191137377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8274,7 +8302,7 @@ MonoBehaviour:
   _agent: {fileID: 1191137374}
   _health: {fileID: 1191137375}
   _woundedPercentThreshold: 0.3
-  _minVelocityToMove: 0.1
+  _minVelocityToMove: 0.3
 --- !u!114 &1191137379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9956,6 +9984,12 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1359932463 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8839453588234353029, guid: 5600060e8cca846b785f2d471e9f2968,
+    type: 3}
+  m_PrefabInstance: {fileID: 312296182}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1359932464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9969,8 +10003,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
-  _delayBeforeExplosion: 1.5
-  _explodeRadius: 2.5
+  _delayBeforeExplosion: 3
+  _explodeRadius: 50
+  _animator: {fileID: 1359932463}
   _explodeFxPrefab: {fileID: 3814609385356386901, guid: 79e5264e95473442ea1f0dce5101c498,
     type: 3}
 --- !u!4 &1367875967 stripped
@@ -10100,6 +10135,12 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1392054046 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8839453588234353029, guid: 5600060e8cca846b785f2d471e9f2968,
+    type: 3}
+  m_PrefabInstance: {fileID: 895440405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1392054048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10113,8 +10154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
-  _delayBeforeExplosion: 1.5
-  _explodeRadius: 2.5
+  _delayBeforeExplosion: 3
+  _explodeRadius: 50
+  _animator: {fileID: 1392054046}
   _explodeFxPrefab: {fileID: 3814609385356386901, guid: 79e5264e95473442ea1f0dce5101c498,
     type: 3}
 --- !u!1 &1394265021 stripped
@@ -11187,6 +11229,12 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1551343568 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8839453588234353029, guid: 5600060e8cca846b785f2d471e9f2968,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031440173}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1551343569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11200,8 +11248,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
-  _delayBeforeExplosion: 1.5
-  _explodeRadius: 2.5
+  _delayBeforeExplosion: 3
+  _explodeRadius: 50
+  _animator: {fileID: 1551343568}
   _explodeFxPrefab: {fileID: 3814609385356386901, guid: 79e5264e95473442ea1f0dce5101c498,
     type: 3}
 --- !u!1 &1560318962 stripped
@@ -12832,6 +12881,12 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1890648952 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8839453588234353029, guid: 5600060e8cca846b785f2d471e9f2968,
+    type: 3}
+  m_PrefabInstance: {fileID: 1890648948}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1890648953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12845,8 +12900,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
-  _delayBeforeExplosion: 1.5
-  _explodeRadius: 2.5
+  _delayBeforeExplosion: 3
+  _explodeRadius: 50
+  _animator: {fileID: 1890648952}
   _explodeFxPrefab: {fileID: 3814609385356386901, guid: 79e5264e95473442ea1f0dce5101c498,
     type: 3}
 --- !u!4 &1904624282 stripped
@@ -13733,7 +13789,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 53
+  field of view: 53.441727
   orthographic: 0
   orthographic size: 125
   m_Depth: -1
@@ -13760,7 +13816,7 @@ Transform:
   m_GameObject: {fileID: 2036328721}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30831024, y: -0.6363527, z: 0.30831024, w: 0.6363527}
-  m_LocalPosition: {x: 188, y: 220, z: 223.14127}
+  m_LocalPosition: {x: 168.9, y: 177.4, z: 223.14127}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13780,7 +13836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1449952904}
   _followSpeed: 5
-  _offset: {x: 100, y: 150, z: -10}
+  _offset: {x: 101.2, y: 150.1, z: -10}
 --- !u!1001 &2047618070
 PrefabInstance:
   m_ObjectHideFlags: 0
