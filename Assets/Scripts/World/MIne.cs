@@ -5,6 +5,8 @@ public class Mine : MonoBehaviour
     [SerializeField] private int _damage = 25;
     [SerializeField] private float _delayBeforeExplosion = 1.5f;
     [SerializeField] private float _explodeRadius = 2.5f;
+	
+	[SerializeField] private ParticleSystem _explodeFxPrefab;
 
     private bool _isTriggered;
     private float _timer;
@@ -42,6 +44,15 @@ public class Mine : MonoBehaviour
 
     private void Explode()
     {
+        if (_explodeFxPrefab != null)
+        {
+            ParticleSystem fx = Instantiate(_explodeFxPrefab, transform.position, Quaternion.identity);
+            
+            fx.Play();
+
+            Destroy(fx.gameObject, fx.main.duration);
+        }
+        
         Collider[] hits = Physics.OverlapSphere(transform.position, _explodeRadius);
 
         for (int i = 0; i < hits.Length; i++)
@@ -51,7 +62,7 @@ public class Mine : MonoBehaviour
             if (damageable != null && damageable.IsDead == false)
             {
                 damageable.TakeDamage(_damage);
-            }
+            }	
         }
 
         Destroy(gameObject);
@@ -59,14 +70,6 @@ public class Mine : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
-        SphereCollider sphere = GetComponent<SphereCollider>();
-
-        if (sphere != null)
-        {
-            Gizmos.DrawWireSphere(transform.position, sphere.radius);
-        }
-
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _explodeRadius);
     }
