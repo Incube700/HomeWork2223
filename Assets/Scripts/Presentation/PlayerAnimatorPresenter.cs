@@ -12,11 +12,26 @@ public class PlayerAnimatorPresenter : MonoBehaviour
     private readonly int _isMovingHash = Animator.StringToHash("IsMoving");
     private readonly int _isWoundedHash = Animator.StringToHash("IsWounded");
     private readonly int _dieHash = Animator.StringToHash("Die");
+    private readonly int _hitHash = Animator.StringToHash("Hit");
 
     private bool _dieTriggered;
+    private int _lastHealth;
+
+    private void Awake()
+    {
+        if (_health != null)
+        {
+            _lastHealth = _health.CurrentHealth;
+        }
+    }
 
     private void Update()
     {
+        if (_animator == null || _agent == null || _health == null)
+        {
+            return;
+        }
+
         if (_health.IsDead == true)
         {
             if (_dieTriggered == false)
@@ -30,6 +45,18 @@ public class PlayerAnimatorPresenter : MonoBehaviour
             return;
         }
 
+        int currentHealth = _health.CurrentHealth;
+
+        if (currentHealth < _lastHealth)
+        {
+            _animator.SetTrigger(_hitHash);
+            _lastHealth = currentHealth;
+        }
+        else if (currentHealth > _lastHealth)
+        {
+            _lastHealth = currentHealth;
+        }
+    
         float speed = _agent.velocity.magnitude;
         bool isMoving = speed > _minVelocityToMove;
         _animator.SetBool(_isMovingHash, isMoving);

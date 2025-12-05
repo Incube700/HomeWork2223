@@ -6,6 +6,7 @@ public class Mine : MonoBehaviour
     [SerializeField] private float _delayBeforeExplosion = 1.5f;
     [SerializeField] private float _explodeRadius = 2.5f;
 	
+	[SerializeField] private Animator _animator;
 	[SerializeField] private ParticleSystem _explodeFxPrefab;
 
     private bool _isTriggered;
@@ -33,12 +34,17 @@ public class Mine : MonoBehaviour
             return;
         }
 
-        IDamageable damageable = other.GetComponent<IDamageable>();
+        IDamageable damageable = other.GetComponentInParent<IDamageable>();
 
         if (damageable != null && damageable.IsDead == false)
         {
             _isTriggered = true;
             _timer = _delayBeforeExplosion;
+
+		if (_animator != null)
+			{	
+			_animator.SetTrigger("Open");
+			}
         }
     }
 
@@ -57,7 +63,7 @@ public class Mine : MonoBehaviour
 
         for (int i = 0; i < hits.Length; i++)
         {
-            IDamageable damageable = hits[i].GetComponent<IDamageable>();
+            IDamageable damageable = hits[i].GetComponentInParent<IDamageable>();
 
             if (damageable != null && damageable.IsDead == false)
             {
@@ -68,7 +74,7 @@ public class Mine : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _explodeRadius);
